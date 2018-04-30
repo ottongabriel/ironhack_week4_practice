@@ -1,0 +1,20 @@
+<h1>Hello {{name}} {{lastName}}!</h1>
+{{#unless address}}
+  <h3>WARNING: We can't find the address!</h3>
+{{/unless}}
+
+{{#with address}}
+  <p>{{street}}, {{number}}</p>
+{{/with}}
+
+<ul>
+  {{#each cities}}
+    {{#if @first}}
+      <li><b>{{@index}}: {{this}}</b></li>
+    {{else if @last}}
+      <li><i>{{@index}}: {{this}}</i></li>
+    {{else}}
+      <li>{{@index}}: {{this}}</li>
+    {{/if}}
+  {{/each}}
+</ul>
